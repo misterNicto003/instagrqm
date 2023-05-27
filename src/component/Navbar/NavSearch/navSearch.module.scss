@@ -1,0 +1,21 @@
+.NavSearch{
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    max-width: 320px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    input{
+        padding: 5px;
+        flex-grow: 1;
+    }
+
+
+    span{
+        font-size: 22px;
+        cursor: pointer;
+        padding:  5px;
+    }
+}
