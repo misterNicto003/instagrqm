@@ -3,11 +3,36 @@ import cls from "./navbar.module.scss";
 
 import Logo from "@/assets/Logo.png";
 import NavSearch from "./NavSearch/NavSearch";
-import { Button, ButtonVariant, Icon } from "@/component";
-import {navList} from "@/utils/conts"
+import { Button, ButtonVariant, Icon, Login, Modal, Register } from "@/component";
+import { navList } from "@/utils/conts";
+import { useDispatch, useSelector } from "react-redux";
+import { AUTH_MODAL_TUPES } from "@/redux/types/authModalTypes";
+
+export const MODAL_VIEW = {
+  LOGIN: "login",
+  REGISTER: "register",
+  FORGOT: "forgot",
+};
 
 const Navbar = () => {
   const isAuth = false;
+  const dispatch = useDispatch();
+  const authModal = useSelector((state) => state.authModal);
+
+  const onOpen = () => {
+    dispatch({
+      type: AUTH_MODAL_TUPES.MODAL,
+      payload: { ...authModal, open: true },
+    });
+  };
+
+  const onClose = () => {
+    dispatch({
+      type: AUTH_MODAL_TUPES.MODAL,
+      payload: { ...authModal, open: false },
+    });
+  };
+
   return (
     <div className={cls.navbar}>
       <div className="container">
@@ -19,22 +44,31 @@ const Navbar = () => {
           {isAuth ? (
             <nav>
               <ul className={cls.navList}>
-              {navList.map((item) =>(
-                <li key={item.id}>
-                  {
-                    item.to? <a href="">
-                      <Icon type={item.iconType}/>
-                    </a> :  <Icon type={item.iconType}/>
-                  }
-                </li>
-              ))}
+                {navList.map((item) => (
+                  <li key={item.id}>
+                    {item.to ? (
+                      <a href="">
+                        <Icon type={item.iconType} />
+                      </a>
+                    ) : (
+                      <Icon type={item.iconType} />
+                    )}
+                  </li>
+                ))}
               </ul>
             </nav>
           ) : (
-            <Button variant={ButtonVariant.OUTLINE}>Войти</Button>
+            <Button variant={ButtonVariant.OUTLINE} onClick={onOpen}>
+              Войти
+            </Button>
           )}
         </div>
       </div>
+
+      <Modal open={authModal.open} onClose={onClose}>
+        {authModal.view === MODAL_VIEW.LOGIN && <Login authModal={authModal}  />}
+        {authModal.view === MODAL_VIEW.REGISTER && <Register authModal={authModal}  />}
+      </Modal>
     </div>
   );
 };

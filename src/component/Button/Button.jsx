@@ -12,6 +12,7 @@ const button = ({
   disabled,
   variant = ButtonVariant,
   type,
+  onClick,
   children,
 }) => {
   return (
@@ -19,6 +20,7 @@ const button = ({
       type={type}
       className={`${cls.btn} ${cls[variant]} ${className || ""}`}
       disabled={disabled}
+      onClick={onClick}
     >
       {children}
     </button>

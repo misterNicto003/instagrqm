@@ -1,0 +1,40 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(26, 26, 26, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.window {
+  background: #fff;
+  border: 1.5px solid var(--red_900);
+  border-radius: 10px;
+  padding: 30px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  transition: all 0.2s;
+
+  &.active{
+    
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  }
+}
