@@ -13,10 +13,18 @@ const button = ({
   variant = ButtonVariant,
   type,
   onClick,
-  children,
+  fullWidth,
+  children,s
 }) => {
+
+  const style ={
+    with: fullWidth ? "100% ": '',
+  };
+
+
   return (
     <button
+    style={style}
       type={type}
       className={`${cls.btn} ${cls[variant]} ${className || ""}`}
       disabled={disabled}

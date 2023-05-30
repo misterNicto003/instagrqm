@@ -5,3 +5,5 @@
  export {default as Forgot} from "./Modal/Auth/Forgot/Forgot"
  export {default as Login} from "./Modal/Auth/Login/Login"
  export {default as Register} from "./Modal/Auth/Register/Register"
+
+ export {default as Input} from "./Input/Input"

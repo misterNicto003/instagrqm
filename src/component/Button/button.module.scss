@@ -3,6 +3,15 @@
   border-radius: 10px;
   cursor: pointer;
 
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+
+  background: var(--red_900);
+  color: #fff;
+
+
+
   &.solid {
     background: var(--red_900);
     color: #fff;
@@ -12,10 +21,9 @@
     background: #fff;
     color: var(--red_900);
     border: 1px solid var(--red_900);
-    &:hover{
-        background: var(--red_hover);
+    &:hover {
+      background: var(--red_hover);
     }
-  
   }
 
   &.clear {
