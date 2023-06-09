@@ -26,7 +26,7 @@
   background: #fff;
   border: 1.5px solid var(--red_900);
   border-radius: 10px;
-  padding: 60px 30px;
+  // padding:  40px;
 
   opacity: 0;
   visibility: hidden;
@@ -38,6 +38,10 @@
   opacity: 1;
   visibility: visible;
   transform: scale(1);
+  }
+
+  .content{
+    padding: 40px;
   }
 
   .close{

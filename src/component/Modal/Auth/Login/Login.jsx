@@ -3,9 +3,8 @@ import cls from "./login.module.scss";
 import { useDispatch } from "react-redux";
 import { AUTH_MODAL_TUPES } from "@/redux/types/authModalTypes";
 import { MODAL_VIEW } from "@/component/Navbar/Navbar";
-import { Button } from "@/component";
-import  {Input}  from "@/component";
-
+import { Button, ButtonVariant } from "@/component";
+import { Input } from "@/component";
 
 const Login = ({ authModal }) => {
   const dispatch = useDispatch();
@@ -19,14 +18,27 @@ const Login = ({ authModal }) => {
 
   return (
     <div className={cls.login}>
-    <h1 className={ cls.title}>Вход или регистрация</h1>
-      <form noValidate onSubmit={() => {}}>
+      <h1 className={cls.title}>Вход или регистрация</h1>
+      <form noValidate onSubmit={() => {}} className={cls.form}>
+        <Input placeholder="UserName" reguired value="userName" />
+        <Input
+          type="Password"
+          placeholder="Password"
+          reguired
+          value="ssdsddsd"
+        />
 
-        <Input placeholder="UserName" reguired />
+        <Button variant={ButtonVariant.CLEAR}>Забыли пароль?</Button>
 
-        <Button fullWidth >Войти</Button>
+        <Button fullWidth>Войти</Button>
       </form>
-      {/* <button onClick={onOpenRegister}>registr</button> */}
+
+      <div className={cls.footer}>
+        еще нет аккаунта?
+        <Button variant={ButtonVariant.CLEAR} onClick={onOpenRegister}>
+          Регистрация
+        </Button>
+      </div>
     </div>
   );
 };

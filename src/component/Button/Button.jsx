@@ -14,11 +14,11 @@ const button = ({
   type,
   onClick,
   fullWidth,
-  children,s
+  children,
 }) => {
 
   const style ={
-    with: fullWidth ? "100% ": '',
+    width: fullWidth ? "100% ": '',
   };
 
 

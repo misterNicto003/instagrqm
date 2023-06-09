@@ -3,7 +3,7 @@ import cls from "./navbar.module.scss";
 
 import Logo from "@/assets/Logo.png";
 import NavSearch from "./NavSearch/NavSearch";
-import { Button, ButtonVariant, Icon, Login, Modal, Register } from "@/component";
+import { Button, ButtonVariant, Forgot, Icon, Login, Modal, Register } from "@/component";
 import { navList } from "@/utils/conts";
 import { useDispatch, useSelector } from "react-redux";
 import { AUTH_MODAL_TUPES } from "@/redux/types/authModalTypes";
@@ -68,6 +68,7 @@ const Navbar = () => {
       <Modal open={authModal.open} onClose={onClose}>
         {authModal.view === MODAL_VIEW.LOGIN && <Login authModal={authModal}  />}
         {authModal.view === MODAL_VIEW.REGISTER && <Register authModal={authModal}  />}
+        {authModal.view === MODAL_VIEW.FORGOT && <Forgot authModal={authModal}  />}
       </Modal>
     </div>
   );
