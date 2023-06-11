@@ -1,13 +1,36 @@
 import React from "react";
 import cls from "./login.module.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AUTH_MODAL_TUPES } from "@/redux/types/authModalTypes";
 import { MODAL_VIEW } from "@/component/Navbar/Navbar";
 import { Button, ButtonVariant } from "@/component";
 import { Input } from "@/component";
 
 const Login = ({ authModal }) => {
+  const schema = yup.object().shape({
+    email: yup
+      .string()
+      .email("Введите валидную почту")
+      .reguired("Поле Email обязательное!"),
+    password: yup
+      .string()
+      .reguired("Поле Пароль обязательное!")
+      .min(6, "Минимальное количество символов (6) !"),
+  });
+  const {
+    register,
+    watch,
+    handleSubmit,
+    reset,
+    control,
+    formState: { errors },
+  } = useForm({
+    mode: "onChange",
+    resolver: yupResolver(schema),
+  });
+
   const dispatch = useDispatch();
+  const authModal = useSelector((state) => state.authModal);
 
   const onOpenRegister = () => {
     dispatch({

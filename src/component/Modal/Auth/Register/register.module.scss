@@ -1,0 +1,39 @@
+.register h2{
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    color: var(--red_900);
+}
+
+
+
+.form {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #272727;
+}
+
+.btn {
+}
+
+.registerFooter {
+  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #272727;
+}

@@ -7,3 +7,4 @@
  export {default as Register} from "./Modal/Auth/Register/Register"
 
  export {default as Input} from "./Input/Input"
+ export {default as Form} from "./Form/Form"

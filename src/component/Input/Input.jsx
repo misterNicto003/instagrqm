@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import cls from "./input.module.scss";
 
-const Input = ({
-  type = "text",
-  className,
-  placeholder,
-  name,
-  value,
-  onChange,
-  reguired = false,
-}) => {
+const Input = (
+  {
+    type = "text",
+    className,
+    placeholder,
+    name,
+    value,
+    onChange,
+    reguired = false,
+  },
+  ref
+) => {
   const [typePass, setTypePass] = useState(false);
   return (
     <div
@@ -22,6 +25,7 @@ const Input = ({
         reguired={reguired}
         onChange={onChange}
         className={cls.input}
+        ref={ref}
       />
 
       <div className={cls.label}>
@@ -49,4 +53,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default forwardRef(Input);
